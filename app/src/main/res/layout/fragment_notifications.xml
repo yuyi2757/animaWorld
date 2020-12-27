@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.dwsj.viewmodel.NotificationsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.associator.AssociatorFragment">
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_gray">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@mipmap/bg_9">
+
+            </ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="165dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+                <!--第一排-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--邀请好友-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/yaoqing">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="邀请好友">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--收款方式-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/my_bank">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="收款方式">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--我的团队-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/my_team">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="我的团队">
+
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--第二排-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--实名认证-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/smrz">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="实名认证">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--系统公告-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/gonggao">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="系统公告">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--用户设置-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/yonghushezhi">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="用户设置">
+
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- ======底部功能栏==========-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="400dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/icon_dw_center"
+                    android:gravity="fill_vertical"
+                    android:text="          第三方服务">
+
+                </TextView>
+                <!--第一排-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--金色财经-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/jinse">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="金色财经">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--币世界-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/bishijie">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="币世界">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--非小号-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/feixiaohao">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="非小号">
+
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--第二排-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--BeeX交易所-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/icon_beex">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="BeeX交易所">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--DW抢购-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/icon_dw_big">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="DW抢购">
+
+                        </TextView>
+                    </LinearLayout>
+                    <!--退太阳-->
+                    <LinearLayout
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/zhanwei"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@mipmap/icon_ri">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="退太阳">
+
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

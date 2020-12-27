@@ -1,0 +1,1486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.dwsj.viewmodel.HomeViewModel" />
+    </data>
+
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/materialRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:isLoadMore="false"
+        app:overlay="true"
+        app:progress_colors="@array/col"
+        app:wave_color="@color/nu"
+        app:wave_show="true">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/index_bg">
+
+            <!--  wave_show设置true下拉背景透明
+           isLoadMore设置false没有底部的上拉刷新
+       -->
+
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/frame_par"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="150dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
+
+
+                <com.example.dwsj.view.MyScrollView
+                    android:id="@+id/scroll_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    tools:ignore="MissingConstraints">
+
+                    <!--android:layout_gravity="center_vertical"-->
+                    <LinearLayout
+                        android:id="@+id/linear_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                        <!--上午场界面-->
+                        <FrameLayout
+                            android:id="@+id/fr_mor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:background="@mipmap/green_bg_2">
+
+                            <TextView
+                                android:id="@+id/tv_mor"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="上午场"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"></TextView>
+
+                            <!--第一排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_1_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="60dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_1_1"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第1场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--猫   android:background="@mipmap/cat"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_1_1"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--图片底下的倒计时图标-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_1_1"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_1_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_1_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_1_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_1_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_1_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_1_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_1_1"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_1"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_1_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_1"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_1_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="大红鹦"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!-- 放置第二排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_1_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="200dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_1_2"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第2场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+
+                                <!--龙  android:background="@mipmap/shenlong"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_1_2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--底部倒计时-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_1_2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_1_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_1_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_1_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_1_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_1_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_1_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_1_2"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_2"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_1_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_2"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_1_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="窜天猴"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--第三排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_1_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="340dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_1_3"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第3场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                                <!--龙   android:background="@mipmap/hema"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_1_3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--头像底部倒计时-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_1_3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_1_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_1_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_1_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_1_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_1_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_1_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_1_3"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_3"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_1_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_3"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_1_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="大河马"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_1_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <!--稍微填补一最底部一场露出的边角-->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="7dp"
+                                android:layout_marginTop="465dp">
+
+                            </View>
+                        </FrameLayout>
+
+                        <!--==================中午场界面===================================================-->
+                        <FrameLayout
+                            android:id="@+id/fr_ef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@mipmap/green_bg_2">
+
+                            <TextView
+                                android:id="@+id/tv_ef"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="20dp"
+                                android:gravity="center"
+                                android:text="中午场"
+                                android:textColor="@color/white"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                            <!--中午场第一排=-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="80dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_2_1"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第4场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                                <!--猫   android:background="@mipmap/cat"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_2_1"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--图片底下的倒计时图标-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_2_1"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_2_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_2_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_2_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_2_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_2_1"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_1"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_2_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_1"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_2_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="大红鹦"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!-- 放置第二排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_2_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="220dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_2_2"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第5场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                                <!--龙  android:background="@mipmap/shenlong"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_2_2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--底部倒计时-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_2_2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_2_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_2_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_2_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_2_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_2_2"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_2"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_2_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_2"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_2_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="窜天猴"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--第三排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_2_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="360dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_2_3"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第6场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                                <!--龙   android:background="@mipmap/hema"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_2_3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--头像底部倒计时-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_2_3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_2_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_2_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_2_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_2_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_2_3"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_3"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_2_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_3"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_2_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="大河马"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--第四排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_2_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="500dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_2_4"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第7场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                                <!--龙   android:background="@mipmap/hema"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_2_4"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--头像底部倒计时-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_2_4"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_2_4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_4"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_2_4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_2_4"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_2_4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_2_4"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_2_4"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_4"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_2_4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_4"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_2_4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="大河马"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_2_4"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <!--稍微填补一最底部一场露出的边角-->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="7dp"
+                                android:layout_marginTop="625dp">
+
+                            </View>
+                        </FrameLayout>
+                        <!--========================下午场界面=========================================-->
+                        <FrameLayout
+                            android:id="@+id/fr_nig"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:background="@mipmap/green_bg_2">
+
+                            <TextView
+                                android:id="@+id/tv_nig"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="下午场"
+                                android:textColor="@color/white"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                            <!--第一排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_3_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="60dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_3_1"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第8场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                                <!--猫   android:background="@mipmap/cat"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_3_1"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--图片底下的倒计时图标-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_3_1"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_3_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_3_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_3_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_3_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_3_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_3_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_3_1"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_1"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_3_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_1"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_3_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="大红鹦"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!-- 放置第二排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_3_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="200dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_3_2"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第9场"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                                <!--龙  android:background="@mipmap/shenlong"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_3_2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--底部倒计时-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_3_2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_3_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_3_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_3_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_3_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_3_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_3_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_3_2"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_2"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_3_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_2"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_3_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="窜天猴"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--第三排-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cons_layout_3_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="340dp"
+                                android:layout_marginRight="50dp"
+                                android:background="@color/white">
+
+                                <!--图片左上角的图标  android:layout_marginStart="50dp"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@mipmap/order_bg_1"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+                                <!--给图标上叠加第x场的文字-->
+                                <TextView
+                                    android:id="@+id/tv_show_number_3_3"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:text="第10场"
+                                    android:textSize="10sp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
+                                <!--龙   android:background="@mipmap/hema"-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_pet_cat_3_3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginTop="25dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!--头像底部倒计时-->
+                                <TextView
+                                    android:id="@+id/img_watch_logo_3_3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="25dp"
+                                    android:layout_marginBottom="18dp"
+                                    android:background="@mipmap/icon_yellow_btn"
+                                    android:gravity="center"
+                                    android:text="00:00:00"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent">
+
+                                </TextView>
+
+                                <!--太阳图标右边的数字-->
+                                <TextView
+                                    android:id="@+id/tv_sun_num_3_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:text="22"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_3_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+                                <!--一个太阳图标  居中-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_sun_3_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@mipmap/icon_taiyang"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/img_watch_logo_3_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                                <!--钞票图标-->
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_houzi_3_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:background="@mipmap/icon_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_sun_num_3_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+
+                                <!-- 本场结束图标-->
+                                <TextView
+                                    android:id="@+id/txv_scare_end_3_3"
+                                    android:layout_width="75dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@mipmap/ic_1"
+                                    android:gravity="center"
+                                    android:text="敬请期待"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_3"></TextView>
+                                <!--钞票图标右边的金额数-->
+                                <TextView
+                                    android:id="@+id/tv_price_3_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3000-5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_3"
+                                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                                <!--右侧顶部的动物名字-->
+                                <TextView
+                                    android:id="@+id/tv_pet_name_3_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="9dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="大河马"
+                                    android:textSize="20sp"
+                                    app:layout_constraintLeft_toRightOf="@id/img_houzi_3_3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                </TextView>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--稍微填补一最底部一场露出的边角-->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="7dp"
+                                android:layout_marginTop="465dp">
+
+                            </View>
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="100dp">
+
+                        </View>
+                    </LinearLayout>
+
+
+                </com.example.dwsj.view.MyScrollView>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </com.cjj.MaterialRefreshLayout>
+</layout>

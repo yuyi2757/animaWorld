@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="col">
+        <item>@color/teal_700</item>
+
+    </integer-array>
+    <integer name="MaterialRefreshLayout">0</integer>
+</resources>
