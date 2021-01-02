@@ -91,9 +91,9 @@ public class AnimaPagerBindingDataFragment extends AnimaFragment<FragmentHomeBin
 
     }
 
+    //接收在viewmodel中联网请求数据，适配界面
     @Override
     protected void getDataFromeNet() {
-//TODO  在viewmodel中联网请求数据更新界面
         homeViewModel.getLiveData(mContext).observe(mContext, new Observer<animaPagerBean>() {
             @Override
             public void onChanged(animaPagerBean bean) {
@@ -101,7 +101,6 @@ public class AnimaPagerBindingDataFragment extends AnimaFragment<FragmentHomeBin
             }
         });
         // homeViewModel.getDataFromeServer();//联网
-
 
 
         //监控 抢购进行中和结束两种状态

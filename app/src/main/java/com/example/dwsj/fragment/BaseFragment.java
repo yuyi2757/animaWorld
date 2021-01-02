@@ -1,9 +1,7 @@
 package com.example.dwsj.fragment;
 /*
 Created by xiaoyu on 2020/11/19
-
 Describe: 所有fragment的基类，负责初始化和绑定自定义事件，viewmodel的初始化
-在分支创建的文件
 */
 
 
@@ -40,7 +38,6 @@ public abstract class BaseFragment<B extends ViewDataBinding> extends Fragment i
 
     protected abstract void initViewModel();
 
-
     /*
      function: getDataBindingConfig()
      每个Fragment或者Activity初始化时，根据自身业务需要进行
@@ -68,10 +65,10 @@ public abstract class BaseFragment<B extends ViewDataBinding> extends Fragment i
      * */
     protected abstract void getDataFromeNet();
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("basefragment", "onCreate: ");
         initViewModel();
     }
 

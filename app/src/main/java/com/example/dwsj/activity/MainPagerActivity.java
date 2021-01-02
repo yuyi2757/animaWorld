@@ -175,7 +175,7 @@ public class MainPagerActivity extends BaseActivity<ActivityMainPagerBinding> {
         mBinding.radioButtonLeft.setChecked(true);
     }
 
-    //手动创建导航图，把3个目的地添加进来
+    //手动创建导航图，把3个目的地frgment添加进来
     private NavGraph initNavGraph(NavigatorProvider provider, MyFragmentNavigator fragmentNavigator) {
         NavGraph navGraph = new NavGraph(new NavGraphNavigator(provider));
 
