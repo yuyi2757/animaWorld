@@ -76,7 +76,6 @@ public abstract class BaseFragment<B extends ViewDataBinding> extends Fragment i
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("basefragment", "onStart: ");
     }
 
     //关联activity时候
